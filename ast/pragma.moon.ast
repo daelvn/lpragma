@@ -1,0 +1,2 @@
+{ "length", { "chain", { "ref", "Pragma"}, {"call", {{ "ref", "IndexableStrings"}}}}}
+{ "length", { "chain", { "ref", "Pragma"}, {"call", {{ "ref", "Substrings"}}}}}
