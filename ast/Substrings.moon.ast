@@ -1,1 +1,0 @@
-{ "assign", {{ "chain", { "ref", "getmetatable"}, {"call", {{"string", "'", ""}}}, {"dot", "__call"}}}, {{ "chain", { "ref", "string"}, {"dot", "sub"}}}}

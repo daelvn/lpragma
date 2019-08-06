@@ -1,3 +1,3 @@
 #Pragma IndexableStrings
-hi!
 #Pragma Substrings
+#Pragma PowerMetatables

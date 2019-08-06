@@ -52,6 +52,19 @@ replaceShape = (ast) -> (shape) -> (new) ->
   --
   return ast
 
+--> # AST Table builders
+RefT     = (x) -> { "ref",    x }
+DotT     = (x) -> { "dot",    x }
+LengthT  = (x) -> { "length", x }
+CallT    = (x) -> { "call",   x }
+ChainT   = (...) ->
+  chain = { "chain" }
+  args  = {...}
+  for arg in *args
+    table.insert chain, arg
+  --
+  chain
+
 --> # AST Shape builders
 Ref    = (shape) -> S { [-1]: _NumOpt, "ref",    shape }
 Dot    = (shape) -> S { [-1]: _NumOpt, "dot",    shape }
@@ -69,4 +82,5 @@ Chain  = (...)   ->
   :removePositions
   :checkShape, :deleteShape, :replaceShape
   :Ref, :Length, :Call, :Chain, :Dot
+  :RefT, :LengthT, :CallT, :ChainT, :DotT
 }

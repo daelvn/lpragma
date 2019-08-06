@@ -102,6 +102,48 @@ replaceShape = function(ast)
     end
   end
 end
+local RefT
+RefT = function(x)
+  return {
+    "ref",
+    x
+  }
+end
+local DotT
+DotT = function(x)
+  return {
+    "dot",
+    x
+  }
+end
+local LengthT
+LengthT = function(x)
+  return {
+    "length",
+    x
+  }
+end
+local CallT
+CallT = function(x)
+  return {
+    "call",
+    x
+  }
+end
+local ChainT
+ChainT = function(...)
+  local chain = {
+    "chain"
+  }
+  local args = {
+    ...
+  }
+  for _index_0 = 1, #args do
+    local arg = args[_index_0]
+    table.insert(chain, arg)
+  end
+  return chain
+end
 local Ref
 Ref = function(shape)
   return S({
@@ -158,5 +200,10 @@ return {
   Length = Length,
   Call = Call,
   Chain = Chain,
-  Dot = Dot
+  Dot = Dot,
+  RefT = RefT,
+  LengthT = LengthT,
+  CallT = CallT,
+  ChainT = ChainT,
+  DotT = DotT
 }
